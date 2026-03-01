@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emporium Science Lab • Why Is the Sky Blue?</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Emporium Science Lab</h1>
+      <p class="subtitle">Why is the sky blue, why are sunsets red, and what changes on Mars and Venus?</p>
+    </header>
+
+    <section class="controls card">
+      <h2>Atmosphere simulator</h2>
+      <p class="howto"><strong>How to use:</strong> pick a planet, then move the <em>Sun elevation</em> and <em>Dust / haze</em> sliders. The sky preview and scattering chart update live.</p>
+      <div class="control-grid">
+        <label>
+          Planet
+          <select id="planetSelect"></select>
+        </label>
+
+        <label>
+          Sun elevation: <span id="sunAngleValue">45°</span>
+          <input id="sunAngle" type="range" min="0" max="90" step="1" value="45" />
+        </label>
+
+        <label>
+          Dust / haze: <span id="dustValue">0.20</span>
+          <input id="dust" type="range" min="0" max="1" step="0.01" value="0.2" />
+        </label>
+      </div>
+
+      <p id="explanation" class="explanation"></p>
+    </section>
+
+    <section class="visuals">
+      <article class="card">
+        <h3>Sky color preview</h3>
+        <div id="skyPanel" class="sky-panel">
+          <div class="sun" id="sunDisc"></div>
+          <div class="horizon"></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Scattering by wavelength</h3>
+        <svg id="bars" viewBox="0 0 420 220" role="img" aria-label="Bar chart of scattering strength by wavelength"></svg>
+        <p class="note">Short wavelengths (blue) scatter more strongly than long wavelengths (red). When sunlight travels through more air at sunset, blues are scattered out of the direct path, making the sun and nearby sky look redder.</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h3>Quick compare: Earth vs Mars vs Venus</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Planet</th>
+            <th>Main atmosphere</th>
+            <th>Typical daytime sky</th>
+            <th>Sunset tendency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Earth</td>
+            <td>N₂ + O₂, moderate aerosols</td>
+            <td>Blue</td>
+            <td>Red/orange sunsets</td>
+          </tr>
+          <tr>
+            <td>Mars</td>
+            <td>Thin CO₂ + dust</td>
+            <td>Butterscotch/tan</td>
+            <td>Bluish sunsets near the sun (dust forward-scattering)</td>
+          </tr>
+          <tr>
+            <td>Venus</td>
+            <td>Very thick CO₂ + sulfuric acid clouds</td>
+            <td>Yellowish diffuse glow (surface receives very little direct blue sky)</td>
+            <td>Muted and highly cloud-filtered</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
